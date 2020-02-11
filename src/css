@@ -1,0 +1,50 @@
+// Global CSS
+body {
+  font-family: fantasy;
+  background-color: lightgrey;
+}
+
+
+// App Component CSS
+main {
+    width: 80%;
+    padding: 20px;
+    border: solid gray 1px;
+    margin: 0 auto;
+    background-color: wheat;
+    margin: 10vh auto;
+  }
+
+  #player-container {
+    display: flex;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    border: solid salmon 1px;
+    background-color: sandybrown;
+    color: rgb(61, 56, 56);
+    font-size: 20px;
+    border-radius: 3px;
+  }
+
+  // Player Component
+  div {
+    flex-grow: 1;
+  }
+  .plus {
+    background-color: seagreen;
+  }
+  .minus {
+    background-color: brown;
+  }
+  button {
+    font-size: 20px;
+    border-radius: 3px;
+    width: 40px;
+    color: white;
+    font-family: monospace;
+    font-weight: bold;
+  }
