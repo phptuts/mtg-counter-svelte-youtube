@@ -1,9 +1,20 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
   export let score = 20;
   export let won = false;
   export let winningText = "Red Won";
   export let fontColor = "#AA0000";
   export let isPlaying = true;
+
+  const dispatch = createEventDispatcher();
+
+  function minusScore() {
+    dispatch("update_score", -1)
+  }
+
+  function plusScore() {
+    dispatch("update_score", 1);
+  }
 </script>
 
 <style>
@@ -32,8 +43,8 @@
 
 <div style="color: {fontColor}">
   <h2>{score}</h2>
-  <button disabled={!isPlaying} class="minus">-</button>
-  <button disabled={!isPlaying} class="plus">+</button>
+  <button on:click={minusScore} disabled={!isPlaying} class="minus">-</button>
+  <button on:click={plusScore} disabled={!isPlaying} class="plus">+</button>
   {#if won}
     <h2>{winningText}</h2>
   {/if}

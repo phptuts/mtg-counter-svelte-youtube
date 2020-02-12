@@ -11,6 +11,15 @@
     blueScore = 20;
   }
 
+  function updateBlueScore(e) {
+    const updateScoreBy = +e.detail;
+    blueScore += updateScoreBy;
+  }
+
+  function updateRedScore(e) {
+    const updateScoreBy = +e.detail;
+    redScore += updateScoreBy;
+  }
 </script>
 
 <style>
@@ -43,16 +52,18 @@
   <h1>Magic The Gathering Counter</h1>
   <section id="player-container">
     <Player
+      on:update_score={updateRedScore}
       score={redScore}
       winningText="Red Won"
-      won={blueWon}
+      won={redWon}
       fontColor="#AA0000"
       {isPlaying} />
     <Player
+      on:update_score={updateBlueScore}
       fontColor="#0000AA"
       score={blueScore}
       winningText="Blue Won"
-      won={redWon}
+      won={blueWon}
       {isPlaying} />
   </section>
   <button on:click={startGame}>Start Game</button>
