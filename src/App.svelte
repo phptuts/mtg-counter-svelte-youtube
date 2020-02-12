@@ -1,5 +1,10 @@
 <script>
-  import Player from './Player.svelte';
+  import Player from "./Player.svelte";
+  let redScore = 0;
+  let blueScore = 0;
+  let blueWon = false;
+  let redWon = false;
+  let isPlaying = false;
 </script>
 
 <style>
@@ -31,8 +36,18 @@
 <main>
   <h1>Magic The Gathering Counter</h1>
   <section id="player-container">
-    <Player />
-    <Player />
+    <Player
+      score={redScore}
+      winningText="Red Won"
+      won={blueWon}
+      fontColor="#AA0000"
+      {isPlaying} />
+    <Player
+      fontColor="#0000AA"
+      score={blueScore}
+      winningText="Blue Won"
+      won={redWon}
+      {isPlaying} />
   </section>
   <button>Start Game</button>
 </main>

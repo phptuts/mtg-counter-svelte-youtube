@@ -1,3 +1,11 @@
+<script>
+  export let score = 20;
+  export let won = false;
+  export let winningText = "Red Won";
+  export let fontColor = "#AA0000";
+  export let isPlaying = true;
+</script>
+
 <style>
   div {
     flex-grow: 1;
@@ -16,11 +24,17 @@
     font-family: monospace;
     font-weight: bold;
   }
+  button[disabled] {
+    background-color: gray;
+    cursor: not-allowed;
+  }
 </style>
 
-<div>
-  <h2>20</h2>
-  <button class="minus">-</button>
-  <button class="plus">+</button>
-  <h2>Blue Wins</h2>
+<div style="color: {fontColor}">
+  <h2>{score}</h2>
+  <button disabled={!isPlaying} class="minus">-</button>
+  <button disabled={!isPlaying} class="plus">+</button>
+  {#if won}
+    <h2>{winningText}</h2>
+  {/if}
 </div>
