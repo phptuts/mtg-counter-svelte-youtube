@@ -2,9 +2,15 @@
   import Player from "./Player.svelte";
   let redScore = 0;
   let blueScore = 0;
-  let blueWon = false;
-  let redWon = false;
-  let isPlaying = false;
+  $: blueWon = redScore <= 0 && blueScore > 0;
+  $: redWon = blueScore <= 0 && redScore > 0;
+  $: isPlaying = !blueWon && !redWon && redScore > 0 && blueScore > 0;
+
+  function startGame() {
+    redScore = 20;
+    blueScore = 20;
+  }
+
 </script>
 
 <style>
@@ -49,5 +55,5 @@
       won={redWon}
       {isPlaying} />
   </section>
-  <button>Start Game</button>
+  <button on:click={startGame}>Start Game</button>
 </main>
